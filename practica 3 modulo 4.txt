@@ -1,0 +1,16 @@
+dnf install cups -y
+dnf install cups-pdf
+systemctl start cups
+
+http://localhost:631
+
+nano /etc/cups/cupsd.conf
+----en Listen cambiar localhost por 0.0.0.0-----
+---- en restrict access debajo de order allow, pon allow all----
+---- en paginas admin, por allow all-----
+
+firewall-cmd --permanent --add-port=631/tcp
+firewall-cmd --reload
+systemctl restart cups
+
+http://192.168.175.130:631

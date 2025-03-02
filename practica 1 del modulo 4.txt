@@ -1,0 +1,65 @@
+dnf install httpd -y
+cd /home/
+systemctl start httpd
+systemctl enable  httpd
+cd /var/www/html/
+ls
+mkdir hola_mundo
+cd hola_mundo
+ls
+nano index.html
+
+
+http://localhost
+
+
+<html><body>
+<h1>HOLA MUNDO</hl>
+</body>
+</html> 
+
+systemctl restart httpd
+http://localhost/hola_mundo/
+
+
+cd /etc/
+ls
+cd httpd/
+ls
+cd conf
+ls
+nano httpd.conf
+http://localhost:80
+---en documentRoot pon "/var/www.html/hola_mundo"
+systemctl restart httpd
+
+
+<VirtualHost *:80>
+DocumentRoot /var/www/html/hola_mundo
+</VirtualHost>
+
+
+cd /var/www/html/
+mkdir nombre
+cd nombre/
+cp /var/www/html/hola_mundo/index.html /var/www/html/nombre
+ls
+nano index.html
+
+-----------en vez de hola mundo pon tu nombre, matricula y materia---------
+
+cd /etc/
+cd httpd/
+cd conf
+ls
+nano httpd.conf
+Listen 80
+Listen 8080
+
+<virtualHost *:8080>
+DocumentRoot /var/www/html/nombre
+</VirtualHost>
+
+systemctl restart httpd
+
+http://localhost:8080
