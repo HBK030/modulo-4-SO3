@@ -16,7 +16,7 @@ inet_interfaces = all ---> le quitamos el (#)
 
 #mydestination = $myhostname, localhost.$mydomain, localhost -> le ponemos el (#)
 mydestination = $myhostname, localhost.$mydomain, localhost, $mydomain - > se lo quitamos (#)
-mynetworks = 192.168.175.0/24, 127.0.0.0/8 - le quitamos (#) y asignamos nuestra IP
+mynetworks = your_IP/24, 127.0.0.0/8 - le quitamos (#) y asignamos nuestra IP
 
 relayhost = [smtp.gmail.com]:587
 smtp_sasl_auth_enable = yes
